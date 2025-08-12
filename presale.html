@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>MAMA Token Presale</title>
+     <link rel="icon" href="/public/favicon.ico" />
+     <style>
+         body {
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             background: #1B1847;
+             color: #fff;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             min-height: 100vh;
+             margin: 0;
+         }
+ 
+         .presale-container {
+             background: #18183E;
+             padding: 30px;
+             border-radius: 20px;
+             border-color: #464988;
+             width: 400px;
+             box-shadow: 0 0 20px #464988;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+         }
+ 
+         .title {
+             font-size: 30px;
+             margin-bottom: 20px;
+             font-weight: 700;
+             text-align: center;
+             background: linear-gradient(90deg, #B437AE, #E94B86, #FB8F5E);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+             text-fill-color: transparent;
+         }
+ 
+         .wallet-info {
+             margin-top: 15px;
+             font-size: 14px;
+             color: #ccc;
+             width: 100%;
+             text-align: center;
+         }
+ 
+         .progress-container {
+             width: 100%;
+             margin-bottom: 20px;
+         }
+ 
+         .progress-label {
+             font-size: 30px;
+             margin-bottom: 5px;
+             color: #ddd;
+             border-color: #464988;
+             text-align: center;
+         }
+ 
+         .progress-bar {
+             background: #262663;
+             height: 20px;
+             border-radius: 100px;
+             overflow: hidden;
+         }
+ 
+         .progress-bar-fill {
+             height: 100%;
+             background: linear-gradient(90deg, #B437AE, #E94B86, #FB8F5E);
+             width: 37.70%; /* Mock percentage */
+             transition: width 0.5s ease-in-out;
+         }
+ 
+         .sol-input {
+             width: 100%;
+             padding: 12px;
+             margin: 15px 0;
+             border-radius: 10px;
+             border: none;
+             font-size: 16px;
+             box-sizing: border-box;
+             color: #eee;
+             background-color: #262663;
+             text-align: center;
+         }
+ 
+         .summary {
+             width: 100%;
+             margin-bottom: 20px;
+             font-size: 14px;
+             color: #eee;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             gap: 5px;
+         }
+ 
+         .buy-btn {
+             width: 100%;
+             padding: 12px;
+             font-size: 16px;
+             margin: 10px 0;
+             border: none;
+             border-radius: 10px;
+             cursor: pointer;
+             background: linear-gradient(90deg, #B437AE, #E94B86, #FB8F5E);
+             color: #fff;
+             font-weight: 600;
+             transition: background 0.3s ease;
+         }
+ 
+         .buy-btn:hover {
+             background: linear-gradient(90deg, #FB8F5E, #E94B86, #B437AE);
+         }
+ 
+         .wallet-btn {
+             width: 100%;
+             padding: 12px;
+             font-size: 16px;
+             margin: 10px 0;
+             border: none;
+             border-radius: 10px;
+             cursor: pointer;
+             background-color: #4356E3;
+             color: #fff;
+             font-weight: 600;
+             transition: background 0.3s ease;
+         }
+ 
+         .wallet-btn:hover {
+             background-color: #3a4fcf;
+         }
+ 
+         #tx-result {
+             font-size: 14px;
+             color: #aaffaa;
+             margin-top: 10px;
+             word-break: break-word;
+             text-align: center;
+         }
+ 
+         @media (max-width: 600px) {
+             body {
+                 padding: 0;
+                 overflow-x: hidden;
+             }
+ 
+             .presale-container {
+                 width: 95%;
+                 max-width: 400px;
+                 padding: 20px;
+                 margin: 0 auto;
+                 box-sizing: border-box;
+             }
+ 
+             .title {
+                 font-size: 24px;
+                 margin-bottom: 15px;
+             }
+ 
+             .progress-label {
+                 font-size: 24px;
+             }
+ 
+             .sol-input {
+                 padding: 10px;
+                 font-size: 14px;
+                 margin: 10px 0;
+             }
+ 
+             .buy-btn, .wallet-btn {
+                 padding: 10px;
+                 font-size: 14px;
+                 margin: 8px 0;
+             }
+ 
+             .summary {
+                 font-size: 12px;
+             }
+ 
+             .wallet-info {
+                 font-size: 12px;
+                 margin-top: 10px;
+             }
+         }
+     </style>
+ </head>
+ <body>
+     <main class="presale-container">
+         <h1 class="title">MAMA Token Presale</h1>
+ 
+         <div class="progress-container">
+             <div class="progress-label">
+                 37.70%
+             </div>
+             <div class="progress-bar">
+                 <div class="progress-bar-fill"></div>
+             </div>
+             <div class="summary">
+                 <div>76,984,572 / 1,000,000,000 MAMA Sold</div>
+                 <div>1 SOL = $174.26 | 1 MAMA = $0.0030</div>
+             </div>
+         </div>
+ 
+         <input
+             type="number"
+             min="0"
+             step="any"
+             placeholder="0"
+             class="sol-input"
+         />
+ 
+         <button class="buy-btn">
+             Buy MAMA Tokens
+         </button>
+ 
+         <button class="wallet-btn">Select Wallet</button>
+ 
+         <div class="wallet-info">Wallet: Not connected</div>
+ 
+         <div id="tx-result"></div>
+     </main>
+     <script>
+         // Mock data and simple script for a static HTML page
+         const totalSold = 76984572;
+         const totalSupply = 1000000000;
+         const soldPercent = 37.70; // Using the value from the image
+         const solPrice = 174.26; // Using the value from the image
+         const currentPrice = 0.0030;
+ 
+         document.querySelector('.progress-label').textContent = `${soldPercent}%`;
+         document.querySelector('.progress-bar-fill').style.width = `${soldPercent}%`;
+         document.querySelector('.summary > div:first-child').textContent = `${totalSold.toLocaleString()} / ${totalSupply.toLocaleString()} MAMA Sold`;
+         document.querySelector('.summary > div:last-child').textContent = `1 SOL = $${solPrice.toFixed(2)} | 1 MAMA = $${currentPrice.toFixed(4)}`;
+     </script>
+ </body>
+ </html>
